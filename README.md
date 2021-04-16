@@ -131,8 +131,8 @@ export FLUX_KEY_FP=AB675CE4CC64251G3S9AE1DAA88ARRTY2C009E2D
 
 ```sh
 k3sup install \
-    --host=169.254.1.1 \
-    --user=k8s-at-home \
+    --host=192.168.1.140 \
+    --user=pi \
     --k3s-version=v1.20.5+k3s1 \
     --k3s-extra-args="--disable servicelb --disable traefik"
 ```
@@ -141,10 +141,10 @@ k3sup install \
 
 ```sh
 k3sup join \
-    --host=169.254.1.2 \
-    --server-host=169.254.1.1 \
+    --host=192.168.1.141 \
+    --server-host=192.168.1.140 \
     --k3s-version=v1.20.5+k3s1 \
-    --user=k8s-at-home
+    --user=pi
 ```
 
 4. Verify the nodes are online
@@ -181,7 +181,7 @@ export BOOTSTRAP_CLOUDFLARE_TOKEN="kpG6iyg3FS_du_8KRShdFuwfbwu3zMltbvmJV6cD"
 1. Verify Flux can be installed
 
 ```sh
-flux check --pre
+flux --kubeconfig=./kubeconfig check --pre
 # ► checking prerequisites
 # ✔ kubectl 1.21.0 >=1.18.0-0
 # ✔ Kubernetes 1.20.5+k3s1 >=1.16.0-0
@@ -191,7 +191,7 @@ flux check --pre
 2. Pre-create the `flux-system` namespace
 
 ```sh
-kubectl --kubeconfig=./kubeconfig create namespace flux-system --dry-run=client -o yaml | kubectl apply -f -
+kubectl --kubeconfig=./kubeconfig create namespace flux-system --dry-run=client -o yaml | kubectl --kubeconfig=./kubeconfig apply -f -
 ```
 
 3. Add the Flux GPG key in-order for Flux to decrypt SOPS secrets
