@@ -1,0 +1,14 @@
+---
+
+- hosts:
+  - master
+  - worker
+  become: true
+  gather_facts: true
+  roles:
+  - ubuntu
+  tasks:
+  - name: reboot
+    ignore_errors: true
+    reboot:
+      msg: "Nodes are being rebooted..."

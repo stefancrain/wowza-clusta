@@ -1,0 +1,33 @@
+---
+
+- include: host.yml
+  tags:
+  - host
+
+- include: time.yml
+  tags:
+  - time
+
+- include: packages.yml
+  tags:
+  - packages
+
+- include: kernel.yml
+  tags:
+  - kernel
+
+- include: boot.yml
+  tags:
+  - boot
+
+- include: network.yml
+  tags:
+  - network
+
+- include: filesystem.yml
+  tags:
+  - filesystem
+
+- include: user.yml
+  tags:
+  - user

@@ -1,0 +1,44 @@
+---
+
+packages:
+  apt_install:
+  - apt-transport-https
+  - arptables
+  - ca-certificates
+  - curl
+  - dnsutils
+  - ebtables
+  - hdparm
+  - htop
+  - iputils-ping
+  - net-tools
+  - nfs-common
+  - nano
+  - psmisc
+  - software-properties-common
+  apt_remove:
+  - apparmor
+  - apport
+  - bcache-tools
+  - btrfs-progs
+  - byobu
+  - cloud-init
+  - cloud-guest-utils
+  - cloud-initramfs-copymods
+  - cloud-initramfs-dyn-netconf
+  - friendly-recovery
+  - fwupd
+  - haproxy
+  - keepalived
+  - landscape-common
+  - lxd-agent-loader
+  - ntfs-3g
+  - open-vm-tools
+  - plymouth
+  - plymouth-theme-ubuntu-text
+  - popularity-contest
+  - snapd
+  - sosreport
+  - tmux
+  - ubuntu-advantage-tools
+  - ufw
